@@ -221,6 +221,9 @@ grate_screen_get_param(struct pipe_screen *pscreen, enum pipe_cap param)
    case PIPE_CAP_TGSI_FS_FINE_DERIVATIVE:
       return 0;
 
+   case PIPE_CAP_ENDIANNESS:
+      return PIPE_ENDIAN_LITTLE;
+
    case PIPE_CAP_VENDOR_ID:
       return 0x10de;
 

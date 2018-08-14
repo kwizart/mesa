@@ -30,9 +30,9 @@ grate_create_vs_state(struct pipe_context *pcontext,
    so->base = *template;
 
    if (grate_debug & GRATE_DEBUG_TGSI) {
-      fprintf(stderr, "DEBUG: TGSI:\n");
+      debug_printf("DEBUG: TGSI:\n");
       tgsi_dump(template->tokens, 0);
-      fprintf(stderr, "\n");
+      debug_printf("\n");
    }
 
    struct tgsi_parse_context parser;
@@ -95,9 +95,9 @@ grate_create_fs_state(struct pipe_context *pcontext,
    so->base = *template;
 
    if (grate_debug & GRATE_DEBUG_TGSI) {
-      fprintf(stderr, "DEBUG: TGSI:\n");
+      debug_printf("DEBUG: TGSI:\n");
       tgsi_dump(template->tokens, 0);
-      fprintf(stderr, "\n");
+      debug_printf("\n");
    }
 
    struct tgsi_parse_context parser;

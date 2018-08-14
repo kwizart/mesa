@@ -39,12 +39,14 @@
 #include <unistd.h>
 #include <fcntl.h>
 
+#include "util/u_debug.h"
+
 #include "host1x01_hardware.h"
 #include "hw_host1x01_uclass.h"
 #include "grate_stream.h"
 
 #define ErrorMsg(fmt, args...) \
-    fprintf(stderr, "%s:%d/%s(): " fmt, \
+    debug_printf("%s:%d/%s(): " fmt, \
             __FILE__, __LINE__, __func__, ##args)
 
 /*

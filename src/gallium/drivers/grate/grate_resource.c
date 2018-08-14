@@ -37,17 +37,17 @@ grate_resource_get_handle(struct pipe_screen *pscreen,
    if (handle->type == DRM_API_HANDLE_TYPE_SHARED) {
       err = drm_tegra_bo_get_name(resource->bo, &handle->handle);
       if (err < 0) {
-         fprintf(stderr, "drm_tegra_bo_get_name() failed: %d\n", err);
+         debug_printf("drm_tegra_bo_get_name() failed: %d\n", err);
          return FALSE;
       }
    } else if (handle->type == DRM_API_HANDLE_TYPE_KMS) {
       err = drm_tegra_bo_get_handle(resource->bo, &handle->handle);
       if (err < 0) {
-         fprintf(stderr, "drm_tegra_bo_get_handle() failed: %d\n", err);
+         debug_printf("drm_tegra_bo_get_handle() failed: %d\n", err);
          return FALSE;
       }
    } else {
-      fprintf(stdout, "unsupported handle type: %d\n", handle->type);
+      debug_printf("unsupported handle type: %d\n", handle->type);
       return FALSE;
    }
 
@@ -205,7 +205,7 @@ grate_screen_resource_create(struct pipe_screen *pscreen,
 
    err = drm_tegra_bo_new(&resource->bo, screen->drm, flags, size);
    if (err < 0) {
-      fprintf(stderr, "drm_tegra_bo_new() failed: %d\n", err);
+      debug_printf("drm_tegra_bo_new() failed: %d\n", err);
       return NULL;
    }
 
@@ -235,7 +235,7 @@ grate_screen_resource_from_handle(struct pipe_screen *pscreen,
    err = drm_tegra_bo_from_name(&resource->bo, screen->drm,
                                 handle->handle, 0);
    if (err < 0) {
-      fprintf(stderr, "drm_tegra_bo_from_name() failed: %d\n", err);
+      debug_printf("drm_tegra_bo_from_name() failed: %d\n", err);
       FREE(resource);
       return NULL;
    }
@@ -284,7 +284,7 @@ grate_blit(struct pipe_context *pcontext, const struct pipe_blit_info *info)
 
    err = grate_stream_begin(&gr2d->stream);
    if (err < 0) {
-      fprintf(stderr, "grate_stream_begin() failed: %d\n", err);
+      debug_printf("grate_stream_begin() failed: %d\n", err);
       return;
    }
 
@@ -371,7 +371,7 @@ fill(struct grate_channel *gr2d,
 
    err = grate_stream_begin(&gr2d->stream);
    if (err < 0) {
-      fprintf(stderr, "grate_stream_begin() failed: %d\n", err);
+      debug_printf("grate_stream_begin() failed: %d\n", err);
       return -1;
    }
 

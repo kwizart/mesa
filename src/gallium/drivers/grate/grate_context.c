@@ -25,7 +25,7 @@ init(struct grate_stream *stream)
 {
    int err = grate_stream_begin(stream);
    if (err < 0) {
-      fprintf(stderr, "grate_stream_begin() failed: %d\n", err);
+      debug_printf("grate_stream_begin() failed: %d\n", err);
       return err;
    }
 
@@ -280,13 +280,13 @@ grate_screen_context_create(struct pipe_screen *pscreen,
 
    err = grate_channel_create(context, DRM_TEGRA_GR2D, &context->gr2d);
    if (err < 0) {
-      fprintf(stderr, "grate_channel_create() failed: %d\n", err);
+      debug_printf("grate_channel_create() failed: %d\n", err);
       return NULL;
    }
 
    err = grate_channel_create(context, DRM_TEGRA_GR3D, &context->gr3d);
    if (err < 0) {
-      fprintf(stderr, "grate_channel_create() failed: %d\n", err);
+      debug_printf("grate_channel_create() failed: %d\n", err);
       return NULL;
    }
 

@@ -67,7 +67,7 @@ grate_draw_vbo(struct pipe_context *pcontext,
 
    err = grate_stream_begin(stream);
    if (err < 0) {
-      fprintf(stderr, "grate_stream_begin() failed: %d\n", err);
+      debug_printf("grate_stream_begin() failed: %d\n", err);
       return;
    }
 
@@ -84,7 +84,7 @@ grate_draw_vbo(struct pipe_context *pcontext,
       unsigned index_offset = 0;
       if (info->has_user_indices) {
          if (!util_upload_index_buffer(pcontext, info, &index_buffer, &index_offset)) {
-            fprintf(stderr, "util_upload_index_buffer() failed\n");
+            debug_printf("util_upload_index_buffer() failed\n");
             return;
          }
       } else

@@ -325,7 +325,7 @@ grate_screen_get_param(struct pipe_screen *pscreen, enum pipe_cap param)
       return 0;
 
    default:
-      fprintf(stdout, "%s: unsupported parameter: %d\n", __func__, param);
+      debug_printf("%s: unsupported parameter: %d\n", __func__, param);
       return 0;
    }
 }
@@ -348,7 +348,7 @@ grate_screen_get_paramf(struct pipe_screen *pscreen,
       return 16.0f;
 
    default:
-      fprintf(stdout, "%s: unsupported parameter: %d\n", __func__, param);
+      debug_printf("%s: unsupported parameter: %d\n", __func__, param);
       return 0.0f;
    }
 }
@@ -437,7 +437,7 @@ grate_screen_get_shader_param(struct pipe_screen *pscreen,
           return 0;
 
       default:
-         fprintf(stdout, "%s: unsupported vertex-shader parameter: %d\n", __func__, param);
+         debug_printf("%s: unsupported vertex-shader parameter: %d\n", __func__, param);
          return 0;
       }
 
@@ -527,7 +527,7 @@ grate_screen_get_shader_param(struct pipe_screen *pscreen,
           return 0;
 
       default:
-         fprintf(stdout, "%s: unsupported fragment-shader parameter: %d\n", __func__, param);
+         debug_printf("%s: unsupported fragment-shader parameter: %d\n", __func__, param);
          return 0;
       }
       break;
@@ -539,7 +539,7 @@ grate_screen_get_shader_param(struct pipe_screen *pscreen,
       return 0;
 
    default:
-      fprintf(stdout, "%s: unknown shader type: %u\n", __func__, shader);
+      debug_printf("%s: unknown shader type: %u\n", __func__, shader);
       return 0;
    }
 }
